@@ -13,12 +13,19 @@ type Props = {
 export const GetDeviceType = ({ children }: Props) => {
   const getDeviceType = (windowWidth: number): DeviceType => windowWidth >= 1024 ? "DESKTOP" : "MOBILE";
   const [deviceType, _setDeviceType] = useState<DeviceType>(getDeviceType(window.innerWidth));
-  const setDeviceType = () => {
-    _setDeviceType(getDeviceType(window.innerWidth));
-  }
+
   useEffect(() => {
-    window.onresize = setDeviceType;
-    return () => { window.onresize = null }
-  })
+    const setDeviceType = () => {
+    _setDeviceType(getDeviceType(window.innerWidth));
+    };
+    setDeviceType();
+
+    window.addEventListener('resize', setDeviceType);
+
+    return () => {
+      window.removeEventListener('resize', setDeviceType);
+    }
+  }, []);
+
   return children({ deviceType });
 }
