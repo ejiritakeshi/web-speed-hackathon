@@ -1,9 +1,9 @@
-import { isEqual } from 'lodash-es';
 import type { FC } from 'react';
 import { memo } from 'react';
 import { FaCheckCircle } from "react-icons/all";
 
 import type { ProductFragmentResponse } from '../../../graphql/fragments';
+import {isEqual} from "../../../utils/lodash";
 import { OutlineButton } from '../../foundation/OutlineButton';
 import { PrimaryAnchor } from '../../foundation/PrimaryAnchor';
 import { PrimaryButton } from '../../foundation/PrimaryButton';

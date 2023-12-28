@@ -1,9 +1,9 @@
 import * as currencyFormatter from 'currency-formatter';
-import { isEqual } from "lodash-es";
 import type { FC } from 'react';
 import { memo } from 'react';
 
 import type { LimitedTimeOfferFragmentResponse, ProductFragmentResponse } from '../../../graphql/fragments';
+import {isEqual} from "../../../utils/lodash";
 import { ProductOfferLabel } from '../ProductOfferLabel';
 
 import * as styles from './ProductOverview.styles';
